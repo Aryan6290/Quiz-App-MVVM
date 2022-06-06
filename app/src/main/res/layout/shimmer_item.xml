@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout   xmlns:android="http://schemas.android.com/apk/res/android"
+  >
+
+    <data>
+        <variable
+            name="count"
+            type="String" />
+    </data>
+    <LinearLayout
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingRight="10dp"
+        android:orientation="vertical">
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginBottom="16dp"
+            android:background="#b7b7b7"
+            />
+
+        <LinearLayout
+            android:layout_marginBottom="16dp"
+            android:layout_gravity="center"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_gravity="center"
+                android:id="@+id/shimmerTV"
+                android:textColor="#424242"
+                android:textSize="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+
+
+                android:gravity="center"
+                android:text="01" />
+
+            <LinearLayout
+
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/textViewUserName"
+                    style="@style/TextAppearance.AppCompat.Large"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:background="#bdbdbd"
+                    tools:text="MindOrks" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="30dp"
+                    android:id="@+id/textViewUserEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/grey"
+
+                    tools:text="MindOrks" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

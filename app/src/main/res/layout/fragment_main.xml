@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    >
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="model"
+            type="com.example.mathongoassignment.viewmodels.HomeViewModel" />
+    </data>
+    <LinearLayout
+
+
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="10dp"
+        android:orientation="vertical"
+        xmlns:tools="http://schemas.android.com/tools"
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".screens.MainFragment">
+
+
+        <LinearLayout
+            android:layout_gravity="center"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/logoIV"
+                android:src="@drawable/mathongo_logo"
+                android:layout_gravity="center"
+                android:layout_marginRight="14dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"/>
+
+            <TextView
+                style="@style/TextAppearance.AppCompat.Headline"
+
+                android:text="MARKS"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_marginTop="30dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    style="@style/TextAppearance.AppCompat.Headline"
+                    android:textSize="34dp"
+                    android:text="Gravitation"
+                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    style="@style/TextAppearance.AppCompat.Caption"
+                    android:textSize="14dp"
+                    android:textColor="#a9a9a9"
+                    android:text="20 Qs | Low Input High Output Chapter"
+                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginBottom="10dp"
+
+            android:id="@+id/selectionContainer"
+            android:visibility="invisible"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:layout_gravity="end"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+
+                android:id="@+id/firstOptionTV"
+                android:enabled="true"
+
+                android:paddingBottom="4dp"
+                android:background="@{model.selectedItem==0? @drawable/border_bottom : null}"
+                android:textColor="@{model.selectedItem==0? @color/text_bold : @color/text_normal }"
+                android:layout_marginRight="10dp"
+                android:textSize="14dp"
+                android:text="Not Attempted"
+
+                android:clickable="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <TextView
+
+                android:id="@+id/secondOptionTV"
+                android:clickable="true"
+                android:enabled="true"
+
+                android:textColor="@{model.selectedItem==1? @color/text_bold : @color/text_normal }"
+                android:paddingBottom="4dp"
+                android:background="@{model.selectedItem==1? @drawable/border_bottom : null}"
+                android:textSize="14dp"
+                android:text="Not Attempted"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+
+        <com.facebook.shimmer.ShimmerFrameLayout
+
+            android:id="@+id/shimmerView"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <include layout="@layout/shimmer_item"  />
+                <include layout="@layout/shimmer_item"  />
+                <include layout="@layout/shimmer_item"  />
+                <include layout="@layout/shimmer_item"  />
+                <include layout="@layout/shimmer_item"  />
+                <include layout="@layout/shimmer_item"  />
+                <include layout="@layout/shimmer_item"  />
+
+
+            </LinearLayout>
+
+
+        </com.facebook.shimmer.ShimmerFrameLayout>
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:visibility="gone"
+            android:id="@+id/unattemptedRV"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </androidx.recyclerview.widget.RecyclerView>
+        <androidx.recyclerview.widget.RecyclerView
+            android:visibility="gone"
+            android:id="@+id/attemptedRV"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </androidx.recyclerview.widget.RecyclerView>
+<include
+    bind:show= "@{(model.unAttemptedQs.size()==0 || model.attemptedQs.size()==0)? true : false}"
+    layout="@layout/no_question"/>
+    </LinearLayout>
+
+</layout>

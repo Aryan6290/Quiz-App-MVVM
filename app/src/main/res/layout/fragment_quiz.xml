@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="model"
+            type="com.example.mathongoassignment.viewmodels.HomeViewModel" />
+    </data>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+       <ScrollView
+           android:layout_weight="1"
+           android:layout_width="match_parent"
+           android:layout_height="0dp">
+           <LinearLayout
+
+               android:paddingHorizontal="16dp"
+               android:paddingVertical="10dp"
+               android:orientation="vertical"
+               android:layout_weight="1"
+               android:layout_width="match_parent"
+               android:layout_height="0dp"
+               tools:context=".screens.QuizFragment">
+
+
+               <LinearLayout
+
+                   android:layout_gravity="center"
+                   android:layout_marginTop="20dp"
+                   android:orientation="horizontal"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content">
+                   <com.google.android.material.card.MaterialCardView
+                       app:cardCornerRadius="10dp"
+
+                       app:strokeWidth="1dp"
+                       app:strokeColor="@color/grey"
+
+                       android:elevation="10dp"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content">
+                       <ImageView
+                           android:padding="10dp"
+                           android:src="@drawable/ic_baseline_arrow_back_ios_24"
+
+                           android:layout_width="40dp"
+                           android:layout_height="40dp"/>
+
+                   </com.google.android.material.card.MaterialCardView>
+
+                   <TextView
+
+                       android:textColor="#212121"
+                       android:textSize="16dp"
+                       android:layout_marginLeft="16dp"
+                       android:layout_gravity="center"
+                       android:text="Gravitation"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"/>
+
+
+
+               </LinearLayout>
+
+
+               <TextView
+                    android:id="@+id/questionNumberTV"
+                   android:layout_marginTop="20dp"
+                   android:textStyle="bold"
+                   android:textSize="16dp"
+                   android:textColor="#a9a9a9"
+                   android:text="Q1 (Single Correct)"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"/>
+               <TextView
+                   android:layout_marginTop="20dp"
+                   android:textStyle="bold"
+                   android:id="@+id/qsStatementTV"
+                   android:textSize="16dp"
+                   android:text="Okay"
+                   android:textColor="#212121"
+
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content">
+
+               </TextView>
+
+               <TextView
+                   android:layout_marginBottom="20dp"
+                   android:paddingVertical="6dp"
+                   android:textStyle="bold"
+                   android:paddingHorizontal="10dp"
+
+                   android:textColor="#1589EE"
+                   android:background="#E8F3FD"
+                   android:layout_marginTop="16dp"
+                   android:text="JEE Main 2020"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"/>
+               <com.google.android.material.card.MaterialCardView
+                   android:orientation="horizontal"
+                   android:id="@+id/firstOptionContainer"
+                   android:elevation="10dp"
+                   app:strokeWidth="2dp"
+                   android:clickable="@{!model.answerButtonClicked}"
+                   app:strokeColor="@{model.selectedOption==0 ? @color/border_blue : @color/border_grey}"
+                   app:cardCornerRadius="10dp"
+                   android:paddingHorizontal="10dp"
+                   android:paddingVertical="20dp"
+                   android:layout_marginBottom="16dp"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content">
+
+
+                   <LinearLayout
+
+                       android:paddingLeft="10dp"
+                       android:paddingVertical="24dp"
+                       android:orientation="horizontal"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content">
+                       <TextView
+
+                           android:layout_marginLeft="10dp"
+                           android:gravity="center"
+                           android:background="@{model.selectedOption==0 ? @drawable/circle_view_coloured : @drawable/circle_view}"
+                           android:text="A"
+
+                           android:layout_width="30dp"
+                           android:layout_height="30dp"/>
+
+                       <TextView
+                           android:id="@+id/optionOneTV"
+                           android:textColor="#212121"
+                           android:textStyle="bold"
+                           android:textSize="18dp"
+                           android:layout_marginLeft="16dp"
+                           android:text="Option 1"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"/>
+                   </LinearLayout>
+
+
+
+
+               </com.google.android.material.card.MaterialCardView>
+               <com.google.android.material.card.MaterialCardView
+
+                   xmlns:app="http://schemas.android.com/apk/res-auto"
+                   android:orientation="horizontal"
+                   android:id="@+id/secondOptionContainer"
+                   android:elevation="10dp"
+                   android:clickable="@{!model.answerButtonClicked}"
+                   app:strokeWidth="2dp"
+                   app:strokeColor="@{model.selectedOption==1? @color/border_blue : @color/border_grey}"
+                   app:cardCornerRadius="10dp"
+                   android:paddingHorizontal="10dp"
+                   android:paddingVertical="20dp"
+                   android:layout_marginBottom="16dp"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content">
+
+
+                   <LinearLayout
+
+                       android:paddingLeft="10dp"
+                       android:paddingVertical="24dp"
+                       android:orientation="horizontal"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content">
+                       <TextView
+                           android:layout_marginLeft="10dp"
+                           android:gravity="center"
+                           android:background="@{model.selectedOption==1 ? @drawable/circle_view_coloured : @drawable/circle_view}"
+                           android:text="A"
+                           android:layout_width="30dp"
+                           android:layout_height="30dp"/>
+
+                       <TextView
+                           android:id="@+id/optionTwoTV"
+                           android:textColor="#212121"
+                           android:textStyle="bold"
+                           android:textSize="18dp"
+                           android:layout_marginLeft="16dp"
+                           android:text="Option 1"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"/>
+                   </LinearLayout>
+
+
+
+
+               </com.google.android.material.card.MaterialCardView>
+               <com.google.android.material.card.MaterialCardView
+                   android:orientation="horizontal"
+                   android:id="@+id/thirdOptionContainer"
+                   android:clickable="@{!model.answerButtonClicked}"
+                   android:elevation="10dp"
+                   app:strokeWidth="2dp"
+                   app:strokeColor="@{model.selectedOption==2 ? @color/border_blue : @color/border_grey}"
+
+                   app:cardCornerRadius="10dp"
+                   android:paddingHorizontal="10dp"
+                   android:paddingVertical="20dp"
+                   android:layout_marginBottom="16dp"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content">
+
+
+                   <LinearLayout
+                       android:paddingLeft="10dp"
+                       android:paddingVertical="24dp"
+                       android:orientation="horizontal"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content">
+                       <TextView
+                           android:layout_marginLeft="10dp"
+                           android:gravity="center"
+                           android:background="@{model.selectedOption==2 ? @drawable/circle_view_coloured : @drawable/circle_view}"
+                           android:text="A"
+                           android:layout_width="30dp"
+                           android:layout_height="30dp"/>
+
+                       <TextView
+                           android:id="@+id/optionThreeTV"
+                           android:textColor="#212121"
+                           android:textStyle="bold"
+                           android:textSize="18dp"
+                           android:layout_marginLeft="16dp"
+                           android:text="Option 1"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"/>
+                   </LinearLayout>
+
+
+
+
+               </com.google.android.material.card.MaterialCardView>
+
+
+
+               <com.google.android.material.card.MaterialCardView
+                   android:orientation="horizontal"
+                   android:id="@+id/fourthOptionContainer"
+                   android:clickable="@{!model.answerButtonClicked}"
+                   android:elevation="10dp"
+                   app:strokeWidth="2dp"
+                   app:strokeColor="@{model.selectedOption==3 ? @color/border_blue : @color/border_grey}"
+                   app:cardCornerRadius="10dp"
+                   android:paddingHorizontal="10dp"
+                   android:paddingVertical="20dp"
+                   android:layout_marginBottom="16dp"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content">
+                   <LinearLayout
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:orientation="horizontal"
+                       android:paddingVertical="24dp"
+                       android:paddingLeft="10dp">
+
+                       <TextView
+                           android:layout_width="30dp"
+                           android:layout_height="30dp"
+                           android:layout_marginLeft="10dp"
+                           android:background="@{model.selectedOption==3 ? @drawable/circle_view_coloured : @drawable/circle_view}"
+                           android:gravity="center"
+                           android:text="A" />
+
+                       <TextView
+                           android:id="@+id/optionFourTV"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:layout_marginLeft="16dp"
+                           android:text="Option 1"
+                           android:textColor="#212121"
+                           android:textSize="18dp"
+                           android:textStyle="bold" />
+                   </LinearLayout>
+
+
+               </com.google.android.material.card.MaterialCardView>
+               <TextView
+
+                    android:id="@+id/solutionHeader"
+                   android:visibility="@{model.answerButtonClicked? View.VISIBLE : View.GONE}"
+                   android:layout_marginTop="20dp"
+                   android:textStyle="bold"
+                   android:textSize="16dp"
+                   android:textColor="#a9a9a9"
+                   android:text="Solution :"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"/>
+
+               <TextView
+                   android:layout_marginBottom="10dp"
+                   android:visibility="@{model.answerButtonClicked? View.VISIBLE : View.GONE}"
+                   android:id="@+id/solutionText"
+                   android:textColor="#414141"
+                   android:layout_marginHorizontal="10dp"
+                   android:textSize="20dp"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"/>
+
+           </LinearLayout>
+
+       </ScrollView>
+
+
+        <RelativeLayout
+
+
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginBottom="16dp"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:gravity="end"
+            android:orientation="horizontal">
+
+            <com.google.android.material.card.MaterialCardView
+
+                android:id="@+id/checkAnswerBtn"
+                android:layout_centerInParent="true"
+                app:cardCornerRadius="10dp"
+                android:elevation="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:background="#1589EE"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#fff"
+                    android:paddingHorizontal="30dp"
+                    android:textSize="16dp"
+                    android:paddingVertical="14dp"
+                    android:text="Check Answer" />
+            </com.google.android.material.card.MaterialCardView>
+            <com.google.android.material.card.MaterialCardView
+                android:onClick="@{()-> model.incrementQ()}"
+                android:layout_alignParentRight="true"
+                app:cardCornerRadius="10dp"
+                android:id="@+id/incrementImage"
+                app:strokeWidth="1dp"
+                app:strokeColor="@color/grey"
+
+                android:elevation="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <ImageView
+
+                    android:padding="10dp"
+                    android:src="@drawable/ic_baseline_arrow_forward_ios_24"
+
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"/>
+
+            </com.google.android.material.card.MaterialCardView>
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/decrementImage"
+                android:layout_alignParentLeft="true"
+                app:cardCornerRadius="10dp"
+
+                app:strokeWidth="1dp"
+                app:strokeColor="@color/grey"
+
+                android:elevation="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+
+
+                <ImageView
+                    android:onClick="@{()-> model.decrementQ()}"
+                    android:padding="10dp"
+                    android:src="@drawable/ic_baseline_arrow_back_ios_24"
+
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"/>
+
+
+            </com.google.android.material.card.MaterialCardView>
+
+
+
+        </RelativeLayout>
+    </LinearLayout>
+
+</layout>
